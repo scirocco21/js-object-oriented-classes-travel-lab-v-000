@@ -41,10 +41,12 @@ class Route {
   return horizontalBlocks + verticalBlocks;
   }
 
-  estimatedTime() {
-    var d = new Date();
-    var hours = d.getHours();
-    if (hours >= 6 && hours < 10 || hours >=16 && hours < 20) {
+  estimatedTime(peak) {
+    // commented out code determines whether a numerical input counts as a peak hour; not what test expects (looking for Boolean as argument)
+    // var d = new Date();
+    // var hours = d.getHours();
+     if (peak) //(hours >= 6 && hours < 10 || hours >=16 && hours < 20)
+              {
       return Math.round(this.blocksTravelled(this.beginningLocation, this.endingLocation)/2);
     }
     else {
