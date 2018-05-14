@@ -45,10 +45,10 @@ class Route {
     var d = new Date();
     var hours = d.getHours();
     if (hours >= 6 && hours < 10 || hours >=16 && hours < 20) {
-      return parseInt(this.blocksTravelled(this.beginningLocation, this.endingLocation)/2);
+      return Math.round(this.blocksTravelled(this.beginningLocation, this.endingLocation)/2);
     }
     else {
-      return parseInt(this.blocksTravelled(this.beginningLocation, this.endingLocation)/3);
+      return Math.round(this.blocksTravelled(this.beginningLocation, this.endingLocation)/3);
     }
   }
 }
