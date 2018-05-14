@@ -8,35 +8,36 @@ class Driver {
     return year - this.startDate.getFullYear();
   }
 }
+let eastWest = ['1st Avenue', '2nd Avenue', '3rd Avenue', 'Lexington Avenue', 'Park', 'Madison Avenue', '5th Avenue'];
 
 class Route {
   constructor(beginningLocation, endingLocation) {
     this.beginningLocation = beginningLocation;
     this.endingLocation = endingLocation;
   }
-  let eastWest = ['1st Avenue', '2nd Avenue', '3rd Avenue', 'Lexington Avenue', 'Park', 'Madison Avenue', '5th Avenue']
 
   blocksTravelled() {
-    let startingVertical = eastWest.indexOf(beginningLocation.vertical);
-    let endingVertical = eastWest.indexOf(endingLocation.vertical);
-    let verticalBlocks;
-    if (startingVertical > endingVertical) {  
-      verticalBlocks = startingVertical - endingVertical;
-    else if (startingVertical < endingVertical) {
-      verticalBlocks = endingVertical - startingVertical;
-    else {
-      verticalBlocks = 0;
-    }
-  let startingHorizontal = eastWest.indexOf(beginningLocation.horizontal); 
-  let endingHorizontal = eastWest.indexOf(endingLocation.horizontal);
-  let horizontalBlocks;
-
-  if (startingHorizontal > endingHorizontal) {
-    horizontalBlocks = startingHorizontal - endingHorizontal;
-  } else if (endingHorizontal > startingHorizontal) {
+    let startingHorizontal = eastWest.indexOf(this.beginningLocation.horizontal);
+    let endingHorizontal = eastWest.indexOf(this.endingLocation.horizontal);
+    let horizontalBlocks;
+    if (startingHorizontal > endingHorizontal) {
+      horizontalBlocks = startingHorizontal - endingHorizontal;
+    } else if (startingHorizontal < endingHorizontal) {
       horizontalBlocks = endingHorizontal - startingHorizontal;
+    } else {
+      horizontalBlocks = 0;
+    }
+  let startingVertical = parseInt(this.beginningLocation.vertical);
+  let endingVertical = parseInt(this.endingLocation.vertical);
+  let verticalBlocks;
+
+  if (startingVertical > endingVertical) {
+    verticalBlockscks = startingVertical - endingVertical;
+  } else if (endingVertical > startingVertical) {
+      verticalBlocks = endingVertical - startingVertical;
   } else {
-    horizontalBlocks = 0;
+    verticalBlocks = 0;
   }
   return horizontalBlocks + verticalBlocks;
+  }
 }
